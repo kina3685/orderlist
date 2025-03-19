@@ -1,0 +1,18 @@
+<h1>発注詳細</h1>
+
+<p>
+  <strong>発注日:</strong>
+  <%= @order.order_date %>
+</p>
+<p>
+  <strong>ステータス:</strong>
+  <%= @order.status %>
+</p>
+<p>
+  <strong>合計金額:</strong>
+  <%= @order.total_price %> 円
+</p>
+
+<%= link_to "戻る", orders_path %> |
+<%= link_to "編集", edit_order_path(@order) %> |
+<%= link_to "削除", order_path(@order), method: :delete, data: { confirm: "本当に削除しますか？" } %>

@@ -1,0 +1,22 @@
+<h1>発注一覧</h1>
+<table>
+  <tr>
+    <th>発注日</th>
+    <th>ステータス</th>
+    <th>合計金額</th>
+    <th>操作</th>
+  </tr>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.order_date %></td>
+      <td><%= order.status %></td>
+      <td><%= order.total_price %></td>
+      <td>
+        <%= link_to "詳細", order_path(order) %> |
+        <%= link_to "編集", edit_order_path(order) %> |
+        <%= link_to "削除", order_path(order), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "新しい発注を作成", new_order_path %>

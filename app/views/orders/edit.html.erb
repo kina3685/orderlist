@@ -1,0 +1,21 @@
+<h1>発注を編集</h1>
+
+<%= form_with(model: @order, local: true) do |form| %>
+  <p>
+    <%= form.label :order_date, "発注日" %><br>
+    <%= form.date_field :order_date %>
+  </p>
+  <p>
+    <%= form.label :status, "ステータス" %><br>
+    <%= form.text_field :status %>
+  </p>
+  <p>
+    <%= form.label :total_price, "合計金額" %><br>
+    <%= form.number_field :total_price %>
+  </p>
+  <p>
+    <%= form.submit "更新" %>
+  </p>
+<% end %>
+
+<%= link_to "戻る", @order %>
