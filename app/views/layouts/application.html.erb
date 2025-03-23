@@ -8,7 +8,10 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    
+    <!-- 一度だけ読み込むように修正 -->
+    <%= stylesheet_link_tag 'orders', media: 'all' %> 
+
   </head>
 
   <body>

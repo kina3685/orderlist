@@ -26,6 +26,11 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  def print
+    @orders = Order.all
+    render layout: false # 通常のレイアウトを無効化
+  end
+
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)

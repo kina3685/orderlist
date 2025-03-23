@@ -1,0 +1,30 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>発注リスト</title>
+  <meta charset="utf-8">
+  <%= stylesheet_link_tag 'order', media: 'print' %>
+</head>
+<body>
+  <h1>発注リスト</h1>
+  <table>
+    <tr>
+      <th>発注日</th>
+      <th>ステータス</th>
+      <th>合計金額</th>
+    </tr>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.order_date %></td>
+        <td><%= order.status %></td>
+        <td><%= order.total_price %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <!-- 印刷ボタン -->
+  <button class="no-print" onclick="window.print()">このページを印刷</button>
+</body>
+</html>
