@@ -1,5 +1,5 @@
 <h1>発注一覧</h1>
-
+<link rel="stylesheet" href="<%= asset_path('index.css') %>">
 <table class="table">
   <thead>
     <tr>
@@ -24,10 +24,5 @@
     <% end %>
   </tbody>
 </table>
-
 <%= link_to "新しい発注を作成", new_order_path, class: "btn btn-primary" %>
 <%= link_to "発注リストを印刷", "/orders/print", class: "btn btn-primary", target: "_blank" %>
-
-<% content_for :head do %>
-  <link rel="stylesheet" href="<%= asset_path('orders.css') %>">
-<% end %>

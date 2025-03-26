@@ -1,20 +1,30 @@
 @media print {
-  body {
-    width: 210mm;
-    height: 297mm;
-    margin: 10mm;
-    font-size: 14px;
+  @page {
+    size: A4;
+    margin: 5mm;
   }
+
+  body {
+    width: 100%;
+    font-size: 14px;
+    font-family: sans-serif;
+    overflow-x: hidden;
+  }
+
   table {
     width: 100%;
+    max-width: 100%; /* 最大幅を100%に制限 */
     border-collapse: collapse;
   }
+
   th, td {
     border: 1px solid black;
     padding: 5px;
     text-align: left;
   }
+
   .no-print {
-    display: none; /* 印刷時にボタンを非表示 */
+    display: none;
   }
+
 }
