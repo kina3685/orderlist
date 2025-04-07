@@ -1,16 +1,17 @@
-<h2>月別の合計発注金額</h2>
+<h2>月別発注金額レポート</h2>
+
 <table>
   <thead>
     <tr>
-      <th>月</th>
+      <th>日付</th>
       <th>合計金額</th>
     </tr>
   </thead>
   <tbody>
     <% @monthly_totals.each do |record| %>
       <tr>
-        <td><%= record.month.strftime('%Y年%m月') %></td>
-        <td><%= number_to_currency(record.total_amount, unit: '¥') %></td>
+        <td><%= record.month.strftime("%Y年%m月") %></td>
+        <td><%= number_to_currency(record.total_amount, precision: 0, unit: "") %>円</td>
       </tr>
     <% end %>
   </tbody>

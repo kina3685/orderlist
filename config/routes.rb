@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  get 'monthly_report', to: 'reports#monthly_summary'
   resources :orders do
     collection do
-      get 'print'  # 発注一覧印刷用のアクション
+      get 'print'
     end
   end
 
-  # ホーム画面
-  root 'home#index'  # ルートURLをホーム画面に設定
+  root 'home#index'
   get 'home', to: 'home#index'
+
+  resources :monthly_summary
 end
