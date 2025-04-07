@@ -1,0 +1,17 @@
+<h2>月別の合計発注金額</h2>
+<table>
+  <thead>
+    <tr>
+      <th>月</th>
+      <th>合計金額</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @monthly_totals.each do |record| %>
+      <tr>
+        <td><%= record.month.strftime('%Y年%m月') %></td>
+        <td><%= number_to_currency(record.total_amount, unit: '¥') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

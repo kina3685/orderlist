@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ホーム</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="<%= asset_path('home.css') %>">
+</head>
+<body>
+  
+  <div class="category-container">
+    <div class="category"><%= link_to "発注一覧", orders_path %></div>
+    <div class="category"><%= link_to "新しい発注", new_order_path %></div>
+    <div class="category"><%= link_to "月別レポート", "/monthly_report" %></div>
+  </div>
+  <main>
+    <section>
+      <h2>発注管理システム</h2>
+      <p class="center-text">このシステムでは、発注管理を効率化し、過去の注文履歴や在庫管理をサポートします。</p>
+    </section>
+    
+    <section>
+      <h2>最近の発注</h2>
+      <table>
+        <tr>
+          <th>発注日</th>
+          <th>業者名</th>
+          <th>合計金額</th>
+        </tr>
+        <% @recent_orders.each do |order| %>
+          <tr>
+            <td><%= order.order_date %></td>
+            <td><%= order.status %></td>
+            <td><%= number_to_currency(order.total_price, precision: 0, unit: "") %>円</td>
+          </tr>
+        <% end %>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

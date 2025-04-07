@@ -1,29 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>発注リスト</title>
+<h1>発注リスト</h1>
+<table>
   <meta charset="utf-8">
   <link rel="stylesheet" href="<%= asset_path('index.css') %>">
   <link rel="stylesheet" href="<%= asset_path('print.css') %>" media="print">
-</head>
-<body>
-  <h1>発注リスト</h1>
-  <table>
+  <tr>
+    <th>発注日</th>
+    <th>ステータス</th>
+    <th>合計金額</th>
+  </tr>
+  <% @orders.each do |order| %>
     <tr>
-      <th>発注日</th>
-      <th>ステータス</th>
-      <th>合計金額</th>
+      <td><%= order.order_date %></td>
+      <td><%= order.status %></td>
+      <td><%= number_to_currency(order.total_price, precision: 0, unit: "") %>円</td>
     </tr>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.order_date %></td>
-        <td><%= order.status %></td>
-        <td><%= order.total_price %></td>
-      </tr>
-    <% end %>
-  </table>
+  <% end %>
+</table>
 
-  <!-- 印刷ボタン -->
-  <button class="no-print" onclick="window.print()">このページを印刷</button>
-</body>
-</html>
+<!-- 印刷ボタン -->
+<button class="no-print" onclick="window.print()">このページを印刷</button>
